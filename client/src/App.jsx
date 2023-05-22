@@ -3,13 +3,24 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
-function App() {
+import React from 'react';
+import HomePage from './pages/HomePage';
 
-  return (
-    <>
-<div> tjena </div>
-    </>
-  )
+
+import { Route, Routes } from 'react-router-dom'
+import { createBrowserRouter } from 'react-router-dom'
+
+createBrowserRouter([{ path: '/' }, {}])
+
+function App() {
+    return (
+        <div className="App">
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+
+            </Routes>
+        </div>
+    )
 }
 
 export default App
