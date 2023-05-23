@@ -38,17 +38,19 @@ client.connect(function (err) {
     console.log('database connected')
 })
 
-app.get('/departures', async (req, res) => {
+app.get('/', async (req, res) => {
     // Retrieve all destinations from the database
-    client.query('SELECT * FROM Departures', (error, results) => {
+    // res.json('Hejsan')
+    client.query('SELECT * FROM departures', (error, results) => {
         if (error) {
-            console.error('Error retrieving Departures:', error)
+            console.error('Error retrieving departures:', error)
             res.status(500).json({ error: 'An error occurred' })
         } else {
             res.json(results.rows)
         }
     })
 })
+
 
 app.post('/bookings', (req, res) => {
     const { name, email, destination } = req.body
