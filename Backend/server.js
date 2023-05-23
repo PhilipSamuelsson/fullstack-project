@@ -38,11 +38,11 @@ client.connect(function (err) {
     console.log('database connected')
 })
 
-app.get('/destinations', (req, res) => {
+app.get('/departures', async (req, res) => {
     // Retrieve all destinations from the database
-    client.query('SELECT * FROM destinations', (error, results) => {
+    client.query('SELECT * FROM Departures', (error, results) => {
         if (error) {
-            console.error('Error retrieving destinations:', error)
+            console.error('Error retrieving Departures:', error)
             res.status(500).json({ error: 'An error occurred' })
         } else {
             res.json(results.rows)
