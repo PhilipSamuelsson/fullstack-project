@@ -26,6 +26,7 @@
 .seimer{
     display: flex;
     gap: 20px;
-    width: 100%;
-    justify-content: space-between;
+    width: 100% !important;
+    max-width: 700px !important;
+    
 }

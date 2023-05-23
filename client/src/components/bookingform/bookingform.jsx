@@ -6,10 +6,17 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
+import dayjs from "dayjs";
 
 const Bookingform = () => {
   const [isFormEnabled, setIsFormEnabled] = useState(true);
   const [selectedValue, setSelectedValue] = useState("enable");
+  const currentDate = dayjs();
+  const futureDate = currentDate.add(7, "day").format("YYYY-MM-DD");
 
   const handleRadioChange = (event) => {
     const value = event.target.value;
@@ -84,37 +91,23 @@ const Bookingform = () => {
               width: "100%",
               maxWidth: "200px",
             }}
-            disabled={!isFormEnabled}
           />
           <div className="seimer">
-            <TextField
-              id="filled-basic"
-              label="Förnamn"
-              variant="filled"
-              sx={{
-                width: "100%",
-                maxWidth: "200px",
-              }}
-            />
-            <TextField
-              id="filled-basic"
-              label="Efternamn"
-              variant="filled"
-              sx={{
-                width: "100%",
-                maxWidth: "200px",
-              }}
-            />
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DemoContainer components={["DateTimePicker"]}>
+                <DateTimePicker label="AVRESEDATUM" defaultValue={dayjs()} />
+              </DemoContainer>
+            </LocalizationProvider>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DemoContainer components={["DateTimePicker"]}>
+                <DateTimePicker
+                  label="HEMRESEDATUM"
+                  disabled={!isFormEnabled}
+                  defaultValue={dayjs(futureDate)}
+                />
+              </DemoContainer>
+            </LocalizationProvider>
           </div>
-          <TextField
-            id="filled-basic"
-            label="Efternamn"
-            variant="filled"
-            sx={{
-              width: "100%",
-              maxWidth: "200px",
-            }}
-          />
         </Box>
       </div>
     </div>
