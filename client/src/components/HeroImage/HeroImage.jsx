@@ -5,7 +5,8 @@ function HeroImage() {
   return (
     <div>
         <div className='heroImage'>
-            <h2>Boka flyg direkt</h2>
+            <h2>AirVenture</h2>
+            <h3>Boka flyg direkt!</h3>
         </div>
     </div>
   )
