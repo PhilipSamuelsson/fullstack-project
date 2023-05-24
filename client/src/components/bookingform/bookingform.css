@@ -1,32 +1,26 @@
 * {
-  box-sizing: border-box;
-  margin: 0px;
-  padding: 0px;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
 }
 
 .leimer {
-  height: 500px;
-  position: absolute;
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  left: 0;
-  right: 0;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .cleimer {
-  padding: 20px;
-  width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
+    padding: 20px;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
-.seimer{
+.seimer {
     display: flex;
     gap: 20px;
     width: 100% !important;
     max-width: 700px !important;
-    
 }

@@ -1,0 +1,11 @@
+.cardSection {
+    width: 75%;
+    height: 30vh;
+    background-color: rgb(202, 196, 206, 0.5);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    border-radius: 20px;
+    padding: 20px;
+}
