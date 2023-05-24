@@ -45,7 +45,7 @@ function NavBarTest() {
         <nav className="nav">
             <div className="container">
                 <div className="logo">
-                    <h2>AirVenture</h2>
+                    {/* <h2>AirVenture</h2> */}
                 </div>
                 <div id="mainListDiv" className="main_list">
                     <ul className="navlinks">

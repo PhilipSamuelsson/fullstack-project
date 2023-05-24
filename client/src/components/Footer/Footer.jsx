@@ -28,7 +28,7 @@ function Footer() {
 					</ul>
 				</div>
 				<div className="col-xs-12 col-sm-4 col-md-4">
-					<h5>Quick links</h5>
+					<h5>AirVenture</h5>
 					<ul className="list-unstyled quick-links">
 						<li><a href="https://www.fiverr.com/share/qb8D02" target="_blank" rel="noopener noreferrer"><i className="fa fa-angle-double-right"></i>Home</a></li>
 						<li><a href="https://www.fiverr.com/share/qb8D02" target="_blank" rel="noopener noreferrer"><i className="fa fa-angle-double-right"></i>About</a></li>
@@ -52,8 +52,8 @@ function Footer() {
 			</div>
 			<div className="row">
 				<div className="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-					<p><u><a href="https://www.nationaltransaction.com/">National Transaction Corporation</a></u> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]</p>
-					<p className="h6">© All right Reversed.<a className="text-green ml-2" href="https://www.sunlimetech.com"target="_blank" rel="noopener noreferrer">Sunlimetech</a></p>
+					{/* <p><u><a href="https://www.nationaltransaction.com/">National Transaction Corporation</a></u> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]</p> */}
+					<p className="h6">© All right Reversed.<a className="text-green ml-2" href="https://www.sunlimetech.com"target="_blank" rel="noopener noreferrer">AirVenture</a></p>
 				</div>
 				<hr></hr>
 			</div>
