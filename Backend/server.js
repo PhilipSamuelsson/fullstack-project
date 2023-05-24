@@ -39,8 +39,6 @@ client.connect(function (err) {
 })
 
 app.get('/', async (req, res) => {
-    // Retrieve all destinations from the database
-    // res.json('Hejsan')
     client.query('SELECT * FROM departures', (error, results) => {
         if (error) {
             console.error('Error retrieving departures:', error)
@@ -51,14 +49,13 @@ app.get('/', async (req, res) => {
     })
 })
 
-
 app.post('/bookings', (req, res) => {
-    const { name, email, destination } = req.body
+    const { departureFrom, arrivalTo, date, length } = req.body //skapar varibler utifrån req.body (insomnia)
 
-    // Insert the booking into the database
+    // Skickar in bokningen i DB
     client.query(
-        'INSERT INTO bookings (name, email, destination) VALUES ($1, $2, $3)',
-        [name, email, destination],
+        'INSERT INTO bookings (departure_from, arrival_to, date, length) VALUES ($1, $2, $3, $4)', // kommando till databasen som innehåller strukturen och definierar vart värdena ska in.
+        [departureFrom, arrivalTo, date, length], // arrayen innehåller dem dynamiska värdena som kommunicerar med placeholders $1, $2, $3, och $4 i SQL statement.
         (error) => {
             if (error) {
                 console.error('Error inserting booking:', error)
@@ -69,6 +66,7 @@ app.post('/bookings', (req, res) => {
         }
     )
 })
+
 
 app.listen(port, () => {
     console.log('Server is running on http://localhost:8000/')
