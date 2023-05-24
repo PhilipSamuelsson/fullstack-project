@@ -13,6 +13,7 @@ function HomePage() {
         <div>
             <NavBar />
             <HeroImage/>
+           
             <div className='bookingSection'>
             <Bookingform />
             </div>

@@ -10,13 +10,47 @@ import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
-import dayjs from "dayjs";
+
+import Button from "@mui/material/Button";
+import SendIcon from "@mui/icons-material/Send";
 
 const Bookingform = () => {
   const [isFormEnabled, setIsFormEnabled] = useState(true);
   const [selectedValue, setSelectedValue] = useState("enable");
-  const currentDate = dayjs();
-  const futureDate = currentDate.add(7, "day").format("YYYY-MM-DD");
+
+  const [formValues, setFormValues] = useState({
+    field1: "",
+    field2: "",
+    field3: "",
+    dateTimeAvgång: null,
+    dateTimeHemkomst: null,
+  });
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
+  };
+
+  const handleDateTimeChange = (value, fieldName) => {
+    const date = value ? value.$d.toLocaleString() : null;
+    setFormValues((prevValues) => ({
+      ...prevValues,
+      [fieldName]: date,
+    }));
+  };
+
+  const handleButtonClick = () => {
+    const { field1, field2, field3, dateTimeAvgång, dateTimeHemkomst } =
+      formValues;
+    console.log("Field 1:", field1);
+    console.log("Field 2:", field2);
+    console.log("Field 3:", field3);
+    console.log("Avgång Date and Time:", dateTimeAvgång);
+    console.log("Hemkomst Date and Time:", dateTimeHemkomst);
+  };
 
   const handleRadioChange = (event) => {
     const value = event.target.value;
@@ -26,6 +60,10 @@ const Bookingform = () => {
       setIsFormEnabled(true);
     } else {
       setIsFormEnabled(false);
+      setFormValues((prevValues) => ({
+        ...prevValues,
+        dateTimeHemkomst: null,
+      }));
     }
   };
 
@@ -69,7 +107,7 @@ const Bookingform = () => {
           flexDirection="column"
           component="form"
           sx={{
-            "& > :not(style)": { m: 2, width: 500, maxWidth: "100%" },
+            "& > :not(style)": { m: 2 },
           }}
           noValidate
           autoComplete="off"
@@ -78,24 +116,31 @@ const Bookingform = () => {
             id="filled-basic"
             label="Flyg Från"
             variant="filled"
-            sx={{
-              width: 500,
-              maxWidth: "100%",
-            }}
+            sx={{}}
+            value={formValues.field1}
+            onChange={handleInputChange}
+            name="field1"
           />
           <TextField
             id="filled-basic"
             label="Flyg Till"
             variant="filled"
-            sx={{
-              width: "100%",
-              maxWidth: "200px",
-            }}
+            sx={{}}
+            value={formValues.field2}
+            onChange={handleInputChange}
+            name="field2"
           />
           <div className="seimer">
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DemoContainer components={["DateTimePicker"]}>
-                <DateTimePicker label="AVRESEDATUM" defaultValue={dayjs()} />
+                <DateTimePicker
+                  label="AVRESEDATUM"
+                  value={formValues.dateTimeAvgång}
+                  onChange={(date) =>
+                    handleDateTimeChange(date, "dateTimeAvgång")
+                  }
+                  renderInput={(props) => <TextField {...props} />}
+                />
               </DemoContainer>
             </LocalizationProvider>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -103,11 +148,32 @@ const Bookingform = () => {
                 <DateTimePicker
                   label="HEMRESEDATUM"
                   disabled={!isFormEnabled}
-                  defaultValue={dayjs(futureDate)}
+                  value={formValues.dateTimeHemkomst}
+                  onChange={(date) =>
+                    handleDateTimeChange(date, "dateTimeHemkomst")
+                  }
+                  renderInput={(props) => <TextField {...props} />}
                 />
               </DemoContainer>
             </LocalizationProvider>
           </div>
+
+          <TextField
+            id="filled-basic"
+            label="Email"
+            variant="filled"
+            sx={{}}
+            value={formValues.field3}
+            onChange={handleInputChange}
+            name="field3"
+          />
+          <Button
+            variant="contained"
+            onClick={handleButtonClick}
+            endIcon={<SendIcon />}
+          >
+            Boka!
+          </Button>
         </Box>
       </div>
     </div>
