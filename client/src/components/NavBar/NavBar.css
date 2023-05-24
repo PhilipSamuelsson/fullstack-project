@@ -36,6 +36,7 @@ h2 {
     height: auto;
     padding-left: 3rem;
     overflow-y: hidden;
+    font-family: 'Pacifico', cursive;
 }
 
 .nav div.logo a {

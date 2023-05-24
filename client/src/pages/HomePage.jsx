@@ -6,9 +6,9 @@ import Bookingform from '../components/bookingform/bookingform'
 function HomePage() {
     return (
         <div>
-            <Bookingform />
             <NavBar />
             <HeroImage/>
+            <Bookingform />
         </div>
     )
 }
