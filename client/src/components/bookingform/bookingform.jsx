@@ -24,6 +24,7 @@ const Bookingform = () => {
     field3: "",
     dateTimeAvgång: null,
     dateTimeHemkomst: null,
+    enkel: false,
   });
 
   const handleInputChange = (event) => {
@@ -43,13 +44,14 @@ const Bookingform = () => {
   };
 
   const handleButtonClick = () => {
-    const { field1, field2, field3, dateTimeAvgång, dateTimeHemkomst } =
+    const { field1, field2, field3, dateTimeAvgång, dateTimeHemkomst, enkel } =
       formValues;
     console.log("Field 1:", field1);
     console.log("Field 2:", field2);
     console.log("Field 3:", field3);
     console.log("Avgång Date and Time:", dateTimeAvgång);
     console.log("Hemkomst Date and Time:", dateTimeHemkomst);
+    console.log("Enkel:", enkel);
   };
 
   const handleRadioChange = (event) => {
@@ -65,6 +67,10 @@ const Bookingform = () => {
         dateTimeHemkomst: null,
       }));
     }
+    setFormValues((prevValues) => ({
+    ...prevValues,
+    enkel: value === "disable",
+  }));
   };
 
   return (
