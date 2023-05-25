@@ -6,6 +6,7 @@ import '@fontsource/roboto/700.css';
 
 import React from 'react';
 import HomePage from './pages/HomePage';
+import BookingPage from './pages/BookingPage';
 
 
 import { Route, Routes } from 'react-router-dom'
@@ -18,6 +19,7 @@ function App() {
         <div className="App">
             <Routes>
                 <Route path="/" element={<HomePage />} />
+                <Route path="/bookings" element={<BookingPage />} />
 
             </Routes>
         </div>
