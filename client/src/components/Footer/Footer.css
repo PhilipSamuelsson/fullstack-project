@@ -21,12 +21,14 @@ section .section-title {
     padding-bottom: 6px;
     margin-bottom: 20px;
     color: #ffffff;
+    font-size: 20px !important;
 }
 #footer a {
     color: #ffffff;
     text-decoration: none !important;
     background-color: transparent;
     -webkit-text-decoration-skip: objects;
+    font-size: 16px !important;
 }
 #footer ul.social li {
     padding: 3px 0;

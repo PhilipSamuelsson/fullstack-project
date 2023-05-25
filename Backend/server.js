@@ -50,23 +50,40 @@ app.get('/', async (req, res) => {
 })
 
 app.post('/bookings', (req, res) => {
-    const { departureFrom, arrivalTo, date, length } = req.body //skapar varibler utifrån req.body (insomnia)
+    const {
+        destination,
+        departure_date,
+        adults,
+        children,
+        passenger_name,
+        email,
+        phone_number
+    } = req.body
 
-    // Skickar in bokningen i DB
+    // Insert the booking into the database
     client.query(
-        'INSERT INTO bookings (departure_from, arrival_to, date, length) VALUES ($1, $2, $3, $4)', // kommando till databasen som innehåller strukturen och definierar vart värdena ska in.
-        [departureFrom, arrivalTo, date, length], // arrayen innehåller dem dynamiska värdena som kommunicerar med placeholders $1, $2, $3, och $4 i SQL statement.
+        'INSERT INTO bookings (destination, departure_date, adults, children, passenger_name, email, phone_number) VALUES ($1, $2, $3, $4, $5, $6, $7)',
+        [
+            destination,
+            departure_date,
+            adults,
+            children,
+            passenger_name,
+            email,
+            phone_number
+        ],
         (error) => {
             if (error) {
                 console.error('Error inserting booking:', error)
-                res.status(500).json({ error: 'An error occurred' })
+                res.status(500).json({
+                    error: 'An error occurred while inserting the booking.'
+                })
             } else {
                 res.json({ message: 'Booking successful' })
             }
         }
     )
 })
-
 
 app.listen(port, () => {
     console.log('Server is running on http://localhost:8000/')
