@@ -2,10 +2,6 @@ import React, { useState } from "react";
 import "./bookingform.css";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -15,20 +11,19 @@ import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 
 const Bookingform = () => {
-  const [isFormEnabled, setIsFormEnabled] = useState(true);
-  const [selectedValue, setSelectedValue] = useState("enable");
-
   const [formValues, setFormValues] = useState({
-    field1: "",
-    field2: "",
-    field3: "",
-    dateTimeAvgång: null,
-    dateTimeHemkomst: null,
-    enkel: false,
+    destination: "",
+    departure_date: null,
+    adults: 0,
+    children: 0,
+    passenger_name: "",
+    email: "",
+    phone_number: "",
   });
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
+
     setFormValues((prevValues) => ({
       ...prevValues,
       [name]: value,
@@ -44,145 +39,122 @@ const Bookingform = () => {
   };
 
   const handleButtonClick = () => {
-    const { field1, field2, field3, dateTimeAvgång, dateTimeHemkomst, enkel } =
-      formValues;
-    console.log("Field 1:", field1);
-    console.log("Field 2:", field2);
-    console.log("Field 3:", field3);
-    console.log("Avgång Date and Time:", dateTimeAvgång);
-    console.log("Hemkomst Date and Time:", dateTimeHemkomst);
-    console.log("Enkel:", enkel);
-  };
-
-  const handleRadioChange = (event) => {
-    const value = event.target.value;
-    setSelectedValue(value);
-
-    if (value === "enable") {
-      setIsFormEnabled(true);
-    } else {
-      setIsFormEnabled(false);
-      setFormValues((prevValues) => ({
-        ...prevValues,
-        dateTimeHemkomst: null,
-      }));
-    }
-    setFormValues((prevValues) => ({
-    ...prevValues,
-    enkel: value === "disable",
-  }));
+    const {
+      destination,
+      departure_date,
+      adults,
+      children,
+      passenger_name,
+      email,
+      phone_number,
+    } = formValues;
+    console.log("Destination:", destination);
+    console.log("Departure_date:", departure_date);
+    console.log("Adults:", adults);
+    console.log("Children:", children);
+    console.log("Passenger_name:", passenger_name);
+    console.log("Email:", email);
+    console.log("phone_number:", phone_number);
   };
 
   return (
-    <div className="leimer">
-      <div className="cleimer">
-        <FormControl>
-          <RadioGroup
-            aria-labelledby="demo-radio-buttons-group-label"
-            defaultValue="Tur&Retur"
-            name="radio-buttons-group"
-            row
-          >
-            <FormControlLabel
-              control={
-                <Radio
-                  value="enable"
-                  onChange={handleRadioChange}
-                  checked={selectedValue === "enable"}
-                />
-              }
-              label="Tur & Retur"
+    <Box
+      component="form"
+      sx={{
+        width: "100%",
+        maxWidth: "600px",
+        margin: "0 auto",
+        padding: "20px",
+        display: "flex",
+        flexDirection: "column",
+      }}
+      noValidate
+      autoComplete="off"
+    >
+        <TextField
+        sx={{ mb: 2 }}
+          id="filled-basic"
+          label="Destination"
+          variant="filled"
+          value={formValues.destination}
+          onChange={handleInputChange}
+          name="destination"
+        />
+            <div className="seimer">
+     
+
+     
+
+        <TextField
+          sx={{ mb: 2 }}
+          id="filled-basic"
+          label="Vuxna"
+          variant="filled"
+          value={formValues.adults}
+          onChange={handleInputChange}
+          name="adults"
+          type="number"
+          inputProps={{ min: "0" }}
+        />
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <DemoContainer components={["DateTimePicker"]}>
+            <DateTimePicker
+              sx={{ mb: 2, position: "relative", top: "-7px" }}
+              label="AVRESEDATUM"
+              value={formValues.departure_date}
+              onChange={(date) => handleDateTimeChange(date, "departure_date")}
+              renderInput={(props) => <TextField {...props} />}
             />
-
-            <FormControlLabel
-              value="Enkel"
-              control={
-                <Radio
-                  onChange={handleRadioChange}
-                  checked={selectedValue === "disable"}
-                  value="disable"
-                />
-              }
-              label="Enkel"
-            />
-          </RadioGroup>
-        </FormControl>
-
-        <Box
-          display="flex"
-          flexDirection="column"
-          component="form"
-          sx={{
-            "& > :not(style)": { m: 2 },
-          }}
-          noValidate
-          autoComplete="off"
-        >
-          <TextField
-            id="filled-basic"
-            label="Flyg Från"
-            variant="filled"
-            sx={{}}
-            value={formValues.field1}
-            onChange={handleInputChange}
-            name="field1"
-          />
-          <TextField
-            id="filled-basic"
-            label="Flyg Till"
-            variant="filled"
-            sx={{}}
-            value={formValues.field2}
-            onChange={handleInputChange}
-            name="field2"
-          />
-          <div className="seimer">
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DemoContainer components={["DateTimePicker"]}>
-                <DateTimePicker
-                  label="AVRESEDATUM"
-                  value={formValues.dateTimeAvgång}
-                  onChange={(date) =>
-                    handleDateTimeChange(date, "dateTimeAvgång")
-                  }
-                  renderInput={(props) => <TextField {...props} />}
-                />
-              </DemoContainer>
-            </LocalizationProvider>
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DemoContainer components={["DateTimePicker"]}>
-                <DateTimePicker
-                  label="HEMRESEDATUM"
-                  disabled={!isFormEnabled}
-                  value={formValues.dateTimeHemkomst}
-                  onChange={(date) =>
-                    handleDateTimeChange(date, "dateTimeHemkomst")
-                  }
-                  renderInput={(props) => <TextField {...props} />}
-                />
-              </DemoContainer>
-            </LocalizationProvider>
-          </div>
-
-          <TextField
-            id="filled-basic"
-            label="Email"
-            variant="filled"
-            sx={{}}
-            value={formValues.field3}
-            onChange={handleInputChange}
-            name="field3"
-          />
-          <Button
-            variant="contained"
-            onClick={handleButtonClick}
-            endIcon={<SendIcon />}
-          >
-            Boka!
-          </Button>
-        </Box>
+          </DemoContainer>
+        </LocalizationProvider>
+        <TextField
+          id="filled-basic"
+          label="Barn"
+          variant="filled"
+          value={formValues.children}
+          onChange={handleInputChange}
+          name="children"
+          type="number"
+          inputProps={{ min: "0", pattern: "[0-9]*" }}
+        />
       </div>
-    </div>
+      <TextField
+        id="filled-basic"
+        label="Namn På Bokare"
+        variant="filled"
+        value={formValues.passenger_name}
+        onChange={handleInputChange}
+        name="passenger_name"
+        sx={{ mb: 2 }}
+      />
+
+      <TextField
+        id="filled-basic"
+        label="Email"
+        variant="filled"
+        value={formValues.email}
+        onChange={handleInputChange}
+        name="email"
+        sx={{ mb: 2 }}
+      />
+      <TextField
+        id="filled-basic"
+        label="Telefonnummer"
+        variant="filled"
+        sx={{ mb: 2 }}
+        value={formValues.phone_number}
+        onChange={handleInputChange}
+        name="phone_number"
+      />
+      <Button
+        variant="contained"
+        onClick={handleButtonClick}
+        endIcon={<SendIcon />}
+        sx={{ mb: 2 }}
+      >
+        Boka!
+      </Button>
+    </Box>
   );
 };
 
