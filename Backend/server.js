@@ -1,14 +1,14 @@
 import pkg from 'pg'
 const { Client } = pkg
+import dotenv from 'dotenv'
 import express from 'express'
 import cors from 'cors'
 import bodyParser from 'body-parser'
-import dotenv from 'dotenv'
-
-dotenv.config()
 
 const app = express()
 const port = 8000
+dotenv.config()
+
 
 app.use(bodyParser.json())
 app.use(
@@ -30,26 +30,26 @@ const client = new Client({
     host: process.env.HOST,
     database: process.env.DATABASE,
     password: process.env.PASSWORD,
-    port: process.env.DB_PORT || 5432
+    port: process.env.PORT
 })
 
 client.connect(function (err) {
     if (err) throw err
-    console.log('Database connected')
+    console.log('database connected')
 })
 
 app.get('/', async (req, res) => {
-    try {
-        const query = 'SELECT * FROM flights'
-        const result = await client.query(query)
-        res.json(result.rows)
-    } catch (error) {
-        console.error('Error retrieving departures:', error)
-        res.status(500).json({ error: 'An error occurred' })
-    }
+    client.query('SELECT * FROM flights', (error, results) => {
+        if (error) {
+            console.error('Error retrieving departures:', error)
+            res.status(500).json({ error: 'An error occurred' })
+        } else {
+            res.json(results.rows)
+        }
+    })
 })
 
-app.post('/bookings', async (req, res) => {
+app.post('/bookings', (req, res) => {
     const {
         destination,
         departure_date,
@@ -60,10 +60,10 @@ app.post('/bookings', async (req, res) => {
         phone_number
     } = req.body
 
-    try {
-        const query =
-            'INSERT INTO bookings (destination, departure_date, adults, children, passenger_name, email, phone_number) VALUES ($1, $2, $3, $4, $5, $6, $7)'
-        await client.query(query, [
+    // Insert the booking into the database
+    client.query(
+        'INSERT INTO bookings (destination, departure_date, adults, children, passenger_name, email, phone_number) VALUES ($1, $2, $3, $4, $5, $6, $7)',
+        [
             destination,
             departure_date,
             adults,
@@ -71,16 +71,20 @@ app.post('/bookings', async (req, res) => {
             passenger_name,
             email,
             phone_number
-        ])
-        res.json({ message: 'Booking successful' })
-    } catch (error) {
-        console.error('Error inserting booking:', error)
-        res.status(500).json({
-            error: 'An error occurred while inserting the booking.'
-        })
-    }
+        ],
+        (error) => {
+            if (error) {
+                console.error('Error inserting booking:', error)
+                res.status(500).json({
+                    error: 'An error occurred while inserting the booking.'
+                })
+            } else {
+                res.json({ message: 'Booking successful' })
+            }
+        }
+    )
 })
 
 app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}/`)
+    console.log('Server is running on http://localhost:8000/')
 })
