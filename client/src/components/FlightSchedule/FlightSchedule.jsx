@@ -8,7 +8,7 @@ const FlightSchedule = () => {
   useEffect(() => {
     // Fetch flights from the API endpoint
     axios
-      .get('http://localhost:8000')
+      .get('http://localhost:8000/departures') // Updated endpoint URL
       .then((response) => {
         setFlights(response.data);
       })
@@ -23,7 +23,7 @@ const FlightSchedule = () => {
       {flights.length > 0 ? (
         <FlightTable
           flights={flights.map((flight) => ({
-            id: flight.id,
+            flight_id: flight.flight_id, // Updated property name
             departure_city: flight.departure_city,
             arrival_city: flight.arrival_city,
             departure_time: flight.departure_time,
