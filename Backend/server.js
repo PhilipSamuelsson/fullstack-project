@@ -1,5 +1,6 @@
 import pkg from 'pg'
 const { Client } = pkg
+import { config } from 'dotenv'
 import express from 'express'
 import cors from 'cors'
 import bodyParser from 'body-parser'
@@ -30,7 +31,7 @@ const client = new Client({
     host: process.env.HOST,
     database: process.env.DATABASE,
     password: process.env.PASSWORD,
-    port: process.env.DB_PORT || 5432
+    port: process.env.PORT
 })
 
 client.connect(function (err) {
