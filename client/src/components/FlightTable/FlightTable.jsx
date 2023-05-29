@@ -6,10 +6,10 @@ const FlightTable = ({ flights }) => {
     <table>
       <thead>
         <tr>
-          <th>Departure City</th>
-          <th>Arrival City</th>
-          <th>Departure Time</th>
-          <th>Arrival Time</th>
+          <th>Avgång</th>
+          <th>Ankomst</th>
+          <th>Avgångstid</th>
+          <th>Ankomsttid</th>
         </tr>
       </thead>
       <tbody>
@@ -38,4 +38,4 @@ FlightTable.propTypes = {
   ).isRequired,
 };
 
-export default FlightTable;
+export default FlightTable

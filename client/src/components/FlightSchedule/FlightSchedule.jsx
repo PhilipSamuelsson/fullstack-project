@@ -19,7 +19,8 @@ const FlightSchedule = () => {
 
   return (
     <div>
-      <h1>Flight Schedule</h1>
+      <h1 className='departureTitle'>Flight Schedule</h1>
+      <div className="departures">
       {flights.length > 0 ? (
         <FlightTable
           flights={flights.map((flight) => ({
@@ -33,6 +34,7 @@ const FlightSchedule = () => {
       ) : (
         <p>No flights available.</p>
       )}
+      </div>
     </div>
   );
 };

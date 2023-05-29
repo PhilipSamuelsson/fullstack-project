@@ -15,6 +15,7 @@ function Footer() {
 						<li><a href="#" target="_blank" rel="noopener noreferrer"><i className="fa fa-angle-double-right"></i>Vår planet</a></li>
 						<li><a href="#" target="_blank" rel="noopener noreferrer"><i className="fa fa-angle-double-right"></i>Våra medarbetare</a></li>
 						<li><a href="#" target="_blank" rel="noopener noreferrer"><i className="fa fa-angle-double-right"></i>Frågor och svar</a></li>
+                        <hr />
 					</ul>
 				</div>
 				<div className="col-xs-12 col-sm-4 col-md-4">
@@ -25,6 +26,7 @@ function Footer() {
 						<li><a href="#" target="_blank" rel="noopener noreferrer"><i className="fa fa-angle-double-right"></i>Transport</a></li>
 						<li><a href="#" target="_blank" rel="noopener noreferrer"><i className="fa fa-angle-double-right"></i>Planera din resa</a></li>
 						<li><a href="#" target="_blank" rel="noopener noreferrer"><i className="fa fa-angle-double-right"></i>Flygstatus</a></li>
+                        <hr />
 					</ul>
 				</div>
                 <div className="col-xs-12 col-sm-4 col-md-4">

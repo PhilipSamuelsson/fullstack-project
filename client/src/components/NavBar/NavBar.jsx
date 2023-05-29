@@ -43,7 +43,7 @@ function NavBarTest() {
 
     return (
         <nav className="nav">
-            <div className="container">
+            <div className="containerNav">
                 <div className="logo">
                     {/* <h2>AirVenture</h2> */}
                 </div>

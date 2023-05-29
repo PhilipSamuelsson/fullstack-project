@@ -77,3 +77,10 @@ section .section-title {
         margin-bottom: 10px;
     }
 }
+ul {
+    margin-bottom: 10%;
+}
+
+.social {
+    margin: 0;
+}
