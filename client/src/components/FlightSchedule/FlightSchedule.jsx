@@ -8,7 +8,7 @@ const FlightSchedule = () => {
   useEffect(() => {
     // Fetch flights from the API endpoint
     axios
-      .get('http://localhost:8000/departures') // Updated endpoint URL
+      .get('http://localhost:8000/') // Updated endpoint URL
       .then((response) => {
         setFlights(response.data);
       })

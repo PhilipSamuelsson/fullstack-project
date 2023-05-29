@@ -1,4 +1,5 @@
-import { Client } from 'pg'
+import pkg from 'pg'
+const { Client } = pkg
 import express from 'express'
 import cors from 'cors'
 import bodyParser from 'body-parser'
@@ -37,9 +38,9 @@ client.connect(function (err) {
     console.log('Database connected')
 })
 
-app.get('/departures', async (req, res) => {
+app.get('/', async (req, res) => {
     try {
-        const query = 'SELECT * FROM departures'
+        const query = 'SELECT * FROM flights'
         const result = await client.query(query)
         res.json(result.rows)
     } catch (error) {
