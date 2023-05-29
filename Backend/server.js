@@ -7,8 +7,8 @@ import bodyParser from 'body-parser'
 
 const app = express()
 const port = 8000
-
 dotenv.config()
+
 
 app.use(bodyParser.json())
 app.use(
