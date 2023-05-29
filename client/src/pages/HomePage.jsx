@@ -12,12 +12,12 @@ function HomePage() {
         <div>
             <NavBar />
             <HeroImage/>
-            <h2 className='sistaMinuten'> Sista minuten </h2>
+            <h2 className='sistaMinuten'> Våra destinationer </h2>
             <div className="cardSection">
 
               <Card/>
             <Card/>
-            <Card/></div>   
+            <Card/></div>
             <Footer />
         </div>
     )
