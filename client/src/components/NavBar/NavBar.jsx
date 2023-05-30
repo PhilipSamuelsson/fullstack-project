@@ -1,47 +1,50 @@
 import React, { useState } from 'react';
-import './NavBar.css';
 import { Link } from 'react-router-dom';
+import './NavBar.css'
 
-function NavBarTest() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+const NavBar = () => {
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
-  const handleMenuClick = () => {
-    setIsMenuOpen(!isMenuOpen);
+  const toggleNav = () => {
+    setIsNavOpen(!isNavOpen);
   };
 
   return (
-    <nav className="nav">
-      <div className="containerNav">
-        <div className="logo">
-          {/* <h2>AirVenture</h2> */}
-        </div>
-        <div
-          id="mainListDiv"
-          className={`main_list ${isMenuOpen ? 'show_list' : ''}`}
-        >
-          <ul className="navlinks">
-            <li>
-              <Link to="/">HEM</Link>
-            </li>
-            <li>
-              <Link to="/bookings">BOKA</Link>
-            </li>
-            <li>
-              <Link to="/departures">AVGÅNGAR</Link>
-            </li>
-            <li>
-              <Link to="/contact">KONTAKT</Link>
-            </li>
-          </ul>
-        </div>
-        <span className="navTrigger" onClick={handleMenuClick}>
-          <i></i>
-          <i></i>
-          <i></i>
-        </span>
+    <nav className="navbar navbar-expand-lg navbar-custom">
+      <button
+        className="navbar-toggler"
+        type="button"
+        onClick={toggleNav}
+        aria-label="Toggle navigation"
+      >
+        <span className="navbar-toggler-icon"></span>
+      </button>
+      <div className={`collapse navbar-collapse ${isNavOpen ? 'show' : ''}`}>
+        <ul className="navbar-nav ml-auto align-items-center">
+          <li className="nav-item">
+            <Link className="nav-link" to="/">
+              HEM
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/bookings">
+              BOKA
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/departures">
+              AVGÅNGAR
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/contact">
+              KONTAKT
+            </Link>
+          </li>
+        </ul>
       </div>
     </nav>
   );
-}
+};
 
-export default NavBarTest;
+export default NavBar;
