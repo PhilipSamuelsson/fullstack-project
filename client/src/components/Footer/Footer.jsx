@@ -15,7 +15,7 @@ function Footer() {
 						<li><a href="#" target="_blank" rel="noopener noreferrer"><i className="fa fa-angle-double-right"></i>Vår planet</a></li>
 						<li><a href="#" target="_blank" rel="noopener noreferrer"><i className="fa fa-angle-double-right"></i>Våra medarbetare</a></li>
 						<li><a href="#" target="_blank" rel="noopener noreferrer"><i className="fa fa-angle-double-right"></i>Frågor och svar</a></li>
-                        <hr />
+                        <br />
 					</ul>
 				</div>
 				<div className="col-xs-12 col-sm-4 col-md-4">
@@ -26,7 +26,7 @@ function Footer() {
 						<li><a href="#" target="_blank" rel="noopener noreferrer"><i className="fa fa-angle-double-right"></i>Transport</a></li>
 						<li><a href="#" target="_blank" rel="noopener noreferrer"><i className="fa fa-angle-double-right"></i>Planera din resa</a></li>
 						<li><a href="#" target="_blank" rel="noopener noreferrer"><i className="fa fa-angle-double-right"></i>Flygstatus</a></li>
-                        <hr />
+                        <br />
 					</ul>
 				</div>
                 <div className="col-xs-12 col-sm-4 col-md-4">
@@ -50,7 +50,7 @@ function Footer() {
 						<li className="list-inline-item"><a href="#" target="_blank" rel="noopener noreferrer"><i className="fa fa-envelope"></i></a></li>
 					</ul>
 				</div>
-				<hr></hr>
+				<br />
 			</div>
 			<div className="row">
 				<div className="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
