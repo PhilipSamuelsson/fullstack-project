@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import FlightTable from '../FlightTable/FlightTable';
+import './FlightContainer.css';
+
 
 const FlightSchedule = () => {
   const [flights, setFlights] = useState([]);
@@ -18,7 +20,7 @@ const FlightSchedule = () => {
   }, []);
 
   return (
-    <div>
+    <div className='departureContainer'>
       <h1 className='departureTitle'>Flight Schedule</h1>
       <div className="departures">
       {flights.length > 0 ? (
