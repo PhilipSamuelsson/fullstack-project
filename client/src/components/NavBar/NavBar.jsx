@@ -57,7 +57,7 @@ function NavBarTest() {
                             <Link to="/bookings">Boka</Link>
                         </li>
                         <li>
-                            <Link to="/contact"> Avgångar </Link>
+                            <Link to="/departures"> Avgångar </Link>
                         </li>
                         <li>
                             <Link to="/contact"> Kontakt </Link>
