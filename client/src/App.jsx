@@ -11,6 +11,7 @@ import BookingPage from './pages/BookingPage';
 
 import { Route, Routes } from 'react-router-dom'
 import { createBrowserRouter } from 'react-router-dom'
+import DeparturesPage from './pages/DeparturesPage';
 
 createBrowserRouter([{ path: '/' }, {}])
 
@@ -20,6 +21,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/bookings" element={<BookingPage />} />
+                <Route path="/departures" element={<DeparturesPage />} />
 
             </Routes>
         </div>
