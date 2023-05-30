@@ -8,7 +8,7 @@ function DeparturesPage() {
   return (
     <div>
         <NavBar/>
-        <div>
+        <div className='departurePic'>
             <FlightSchedule/>
         </div>
 
