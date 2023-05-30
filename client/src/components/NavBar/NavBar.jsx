@@ -50,17 +50,17 @@ function NavBarTest() {
                 <div id="mainListDiv" className="main_list">
                     <ul className="navlinks">
                         <li>
-                            <Link to="/">Hem</Link>
+                            <Link to="/">HEM</Link>
                         </li>
 
                         <li>
-                            <Link to="/bookings">Boka</Link>
+                            <Link to="/bookings">BOKA</Link>
                         </li>
                         <li>
-                            <Link to="/contact"> Avgångar </Link>
+                            <Link to="/avgångar">AVGÅNGAR</Link>
                         </li>
                         <li>
-                            <Link to="/contact"> Kontakt </Link>
+                            <Link to="/contact">KONTAKT</Link>
                         </li>
                     </ul>
                 </div>
