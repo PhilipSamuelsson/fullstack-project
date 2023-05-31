@@ -6,6 +6,7 @@ import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
+import axios from "axios";
 
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
@@ -39,22 +40,14 @@ const Bookingform = () => {
   };
 
   const handleButtonClick = () => {
-    const {
-      destination,
-      departure_date,
-      adults,
-      children,
-      passenger_name,
-      email,
-      phone_number,
-    } = formValues;
-    console.log("Destination:", destination);
-    console.log("Departure_date:", departure_date);
-    console.log("Adults:", adults);
-    console.log("Children:", children);
-    console.log("Passenger_name:", passenger_name);
-    console.log("Email:", email);
-    console.log("phone_number:", phone_number);
+    axios
+      .post("http://localhost:8000/bookings", formValues)
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
@@ -71,20 +64,16 @@ const Bookingform = () => {
       noValidate
       autoComplete="off"
     >
-        <TextField
+      <TextField
         sx={{ mb: 2 }}
-          id="filled-basic"
-          label="Destination"
-          variant="filled"
-          value={formValues.destination}
-          onChange={handleInputChange}
-          name="destination"
-        />
-            <div className="seimer">
-     
-
-     
-
+        id="filled-basic"
+        label="Destination"
+        variant="filled"
+        value={formValues.destination}
+        onChange={handleInputChange}
+        name="destination"
+      />
+      <div className="seimer">
         <TextField
           sx={{ mb: 2 }}
           id="filled-basic"
@@ -96,17 +85,7 @@ const Bookingform = () => {
           type="number"
           inputProps={{ min: "0" }}
         />
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <DemoContainer components={["DateTimePicker"]}>
-            <DateTimePicker
-              sx={{ mb: 2, position: "relative", top: "-7px" }}
-              label="AVRESEDATUM"
-              value={formValues.departure_date}
-              onChange={(date) => handleDateTimeChange(date, "departure_date")}
-              renderInput={(props) => <TextField {...props} />}
-            />
-          </DemoContainer>
-        </LocalizationProvider>
+
         <TextField
           id="filled-basic"
           label="Barn"
@@ -118,6 +97,17 @@ const Bookingform = () => {
           inputProps={{ min: "0", pattern: "[0-9]*" }}
         />
       </div>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <DemoContainer components={["DateTimePicker"]}>
+          <DateTimePicker
+            sx={{ mb: 2, position: "relative", top: "-7px" }}
+            label="AVRESEDATUM"
+            value={formValues.departure_date}
+            onChange={(date) => handleDateTimeChange(date, "departure_date")}
+            renderInput={(props) => <TextField {...props} />}
+          />
+        </DemoContainer>
+      </LocalizationProvider>
       <TextField
         id="filled-basic"
         label="Namn På Bokare"
