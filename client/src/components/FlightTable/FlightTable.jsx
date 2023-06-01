@@ -5,7 +5,7 @@ const FlightTable = ({ flights }) => {
   return (
     <table>
       <thead>
-        <tr>
+        <tr className='headerSection'>
           <th>Avgång</th>
           <th>Ankomst</th>
           <th>Avgångstid</th>

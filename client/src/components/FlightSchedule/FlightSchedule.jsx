@@ -21,7 +21,7 @@ const FlightSchedule = () => {
 
   return (
     <div className='departureContainer'>
-      <h1 className='departureTitle'>Flight Schedule</h1>
+      <h1 className='departureTitle'>Avgångar</h1>
       <div className="departures">
       {flights.length > 0 ? (
         <FlightTable
