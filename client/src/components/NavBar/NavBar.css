@@ -20,5 +20,6 @@ a.nav-link {
 }
 
 a.nav-link:hover {
-    color: red;
+    text-decoration: underline;
+    color: black !important;
 }
