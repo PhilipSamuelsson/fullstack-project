@@ -142,7 +142,7 @@ const Bookingform = () => {
         endIcon={<SendIcon />}
         sx={{ mb: 2 }}
       >
-        Boka!
+        Boka
       </Button>
     </Box>
   );
