@@ -30,9 +30,9 @@ const ContactForm = () => {
         <div className="home-cards">
           <div className="section">
             <div className="section-head">
-              <h2>Hör av dig till oss</h2>
-              <ul>
-                <li>
+              <h2 className="contact-h2">Hör av dig till oss</h2>
+              <ul className="contact-info">
+                <li className="contact-li">
                   <PlaceIcon
                     color="success"
                     style={{ marginRight: 10 }}
@@ -43,7 +43,7 @@ const ContactForm = () => {
                 </li>
                 <br />
 
-                <li>
+                <li className="contact-li">
                   <LocalPhoneIcon
                     color="success"
                     style={{ marginRight: 10 }}
@@ -52,7 +52,7 @@ const ContactForm = () => {
                   08-7201122
                 </li>
 
-                <li>
+                <li className="contact-li">
                   <AlternateEmailIcon
                     color="success"
                     style={{ marginRight: 10 }}
@@ -61,7 +61,7 @@ const ContactForm = () => {
                   kontakt@airventure.com
                 </li>
 
-                <li>
+                <li className="contact-li">
                   <HomeIcon
                     color="success"
                     style={{ marginRight: 10 }}
@@ -73,10 +73,10 @@ const ContactForm = () => {
             </div>
           </div>
           <form className="contactform" method="post" onSubmit={handleSubmit}>
-            <h1>
-              Kontakta <span>AirVenture</span>
+            <h1 className="contact-h1">
+              Kontakta <span className="contact-span">AirVenture</span>
             </h1>
-            <input
+            <input className="contact-input"
               type="text"
               name="name"
               id=""
@@ -107,7 +107,7 @@ const ContactForm = () => {
               value={data.message}
               placeholder="Meddelande"
             ></textarea>
-            <button type="submit">Skicka</button>
+            <button className="contact-button" type="submit">Skicka</button>
             <h2></h2>
           </form>
         </div>
