@@ -25,7 +25,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div>
+    <>
       <div className="contact-img">
         <div className="home-cards1">
           <div className="section">
@@ -112,7 +112,7 @@ const ContactForm = () => {
           </form>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

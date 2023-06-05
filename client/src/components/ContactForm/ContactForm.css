@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Megrim&display=swap');
+
+
 .contact-img {
-    background-repeat: no-repeat;
-    opacity: .8;
+    opacity: 0.88;
     height: 100%;
     width: 100%;
     background-size: cover;
@@ -19,29 +21,32 @@
     background-color: rgb(0, 0, 0);
     opacity: 0.62;
     margin: 120px auto;
-    width: 500px;
+    width: 400px;
     height: 380px;
     padding: 20px auto;
     border-radius: 12px;
-    animation: slideInFromTop 1.5s ease-in;
+    animation: slideInFromTop 1.2s ease-in;
 }
 
 .contactform {
     display: block;
     background-color: transparent;
     margin: 20px auto;
-    max-width: 600px;
-    max-height: 700px;
+    width: 600px;
+    height: 700px;
     padding: 100px 110px;
     margin-right: 80px;
-    animation: slideInFromRight 1.5s ease-in;
+    animation: slideInFromRight 1.2s ease-in;
 }
 
 
 h1{
-    color: black !important;
+    color: #007b5e !important;
     text-align: center !important;
+    font-family: 'Megrim', cursive;
 }
+
+
 
 span{
     color: rgb(255, 107, 2);
@@ -54,8 +59,8 @@ h2{
     margin-top: 30px !important;
     font-family: 'Pacifico', cursive;
     color: #007b5e;
-
 }
+
 
 
 
@@ -105,11 +110,6 @@ i{
     margin: 2px;
     padding: 5px;
 }
-
-
-
-
-
 
 
 @keyframes slideInFromRight {
