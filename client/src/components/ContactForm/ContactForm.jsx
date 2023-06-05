@@ -76,7 +76,8 @@ const ContactForm = () => {
             <h1 className="contact-h1">
               Kontakta <span className="contact-span">AirVenture</span>
             </h1>
-            <input className="contact-input"
+            <input
+              className="contact-input"
               type="text"
               name="name"
               id=""
@@ -85,6 +86,7 @@ const ContactForm = () => {
               placeholder="Namn..."
             ></input>
             <input
+              className="contact-input"
               type="email"
               name="email"
               id=""
@@ -93,6 +95,7 @@ const ContactForm = () => {
               placeholder="Email..."
             ></input>
             <input
+              className="contact-input"
               type="phone"
               name="phone"
               id=""
@@ -107,7 +110,9 @@ const ContactForm = () => {
               value={data.message}
               placeholder="Meddelande"
             ></textarea>
-            <button className="contact-button" type="submit">Skicka</button>
+            <button className="contact-button" type="submit">
+              Skicka
+            </button>
             <h2></h2>
           </form>
         </div>
