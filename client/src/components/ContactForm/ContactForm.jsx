@@ -27,7 +27,7 @@ const ContactForm = () => {
   return (
     <>
       <div className="contact-img">
-        <div className="home-cards1">
+        <div className="home-cards">
           <div className="section">
             <div className="section-head">
               <h2>Hör av dig till oss</h2>
