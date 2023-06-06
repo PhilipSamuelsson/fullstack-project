@@ -64,3 +64,17 @@ table {
     height: 100vh;
     width: 100%;
 }
+
+.bookingTitle {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'roboto';
+    font-size: 3vw;
+}
+
+@media (max-width: 768px) {
+    .bookingTitle {
+        font-size: 6vw; /* Adjust the font size for mobile devices */
+    }
+}

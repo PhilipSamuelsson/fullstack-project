@@ -5,7 +5,7 @@ function BookingImage() {
   return (
     <div>
         <div className="BookingImage">
-            <h3>Boka din resa med oss!</h3>
+            <h3 className='BookingImage-title'>Boka din resa med oss!</h3>
         </div>
     </div>
   )
