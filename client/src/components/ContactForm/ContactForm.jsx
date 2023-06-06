@@ -38,7 +38,6 @@ const ContactForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     alert(data.name);
-    alert(data.email);
   };
 
   return (
@@ -55,8 +54,8 @@ const ContactForm = () => {
                     style={{ marginRight: 10 }}
                     fontSize="medium"
                   />
-                  Trekantsvägen 1,
-                  <br /> 12059 Stockholm.
+                  Trekantsvägen 1
+                  <br /> 12059 Stockholm
                 </li>
                 <br />
 
@@ -75,7 +74,7 @@ const ContactForm = () => {
                     style={{ marginRight: 10 }}
                     fontSize="medium"
                   />
-                  kontakt@airventure.com
+                  fly@airventure.com
                 </li>
 
                 <li className="contact-li">
