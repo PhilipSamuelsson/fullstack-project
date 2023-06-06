@@ -5,7 +5,7 @@
     height: 100vh;
     width: 100%;
     background-size: cover;
-    background-image: url('https://images.unsplash.com/photo-1558285549-2a06f9a5fe65?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGZsaWdodHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60');
+    background-image: url('https://images.unsplash.com/photo-1558285549-2a06f9a5fe65?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
 }
 
 .home-cards {
@@ -37,7 +37,7 @@
 }
 
 .contact-h1 {
-    color: #007b5e ;
+    color: #007b5e;
     text-align: center !important;
     font-family: 'Megrim', cursive;
     font-weight: bolder;
@@ -129,7 +129,6 @@ i {
         align-items: center;
         background-color: rgb(0, 0, 0);
         opacity: 0.62;
-
     }
 
     .contactform {
@@ -138,8 +137,6 @@ i {
         padding: 100px;
     }
 }
-
-
 
 @media (max-width: 768px) {
     .home-cards {
@@ -151,7 +148,6 @@ i {
         align-items: center;
         background-color: rgb(0, 0, 0);
         opacity: 0.62;
-
     }
 
     .contactform {
@@ -160,7 +156,6 @@ i {
         margin: -100px auto;
         width: 500px;
         padding: 70px;
-
     }
 }
 
@@ -175,10 +170,9 @@ i {
         background-color: rgb(0, 0, 0);
         opacity: 0.62;
         margin: 1px;
-        border-radius:0;
+        border-radius: 0;
         width: 100%;
     }
-
 
     .contactform {
         display: block;
@@ -189,12 +183,9 @@ i {
     }
 
     .contact-h1 {
-        color: rgb(0, 0, 0) ;
+        color: rgb(0, 0, 0);
         font-weight: 700;
     }
-
-
-
 }
 
 @media (max-width: 376px) {
@@ -216,20 +207,18 @@ i {
         padding: 10px;
     }
 
- li.contact-li{
-    color: rgb(255, 255, 255) !important;
-       font-size: 16px;
+    li.contact-li {
+        color: rgb(255, 255, 255) !important;
+        font-size: 16px;
     }
 
-ul.contact-info {
-    background-color: black;
-    width: 332px;
-}
-
-
+    ul.contact-info {
+        background-color: black;
+        width: 332px;
+    }
 
     .contactform {
-        display:block;
+        display: block;
         background-color: transparent;
         padding: 10px;
         width: 320px;
