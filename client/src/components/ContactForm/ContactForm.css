@@ -134,13 +134,12 @@ i {
 
     .contactform {
         display: block;
-        background-color: transparent;
         margin: 10px auto;
-        width: 600px;
-        height: 100%;
         padding: 100px;
     }
 }
+
+
 
 @media (max-width: 768px) {
     .home-cards {
@@ -177,18 +176,20 @@ i {
         opacity: 0.62;
         margin: 1px;
         border-radius:0;
-
+        width: 100%;
     }
+
 
     .contactform {
         display: block;
         background-color: transparent;
         margin: 1px;
         width: 450px;
-        margin-left: -17px;
+        margin-left: -27px;
 
 
     }
+
 }
 
 @media (max-width: 376px) {
@@ -196,20 +197,38 @@ i {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
     }
-    .section {
+    .section-head {
         display: block;
         align-items: center;
-        background-color: rgb(0, 0, 0);
-        opacity: 0.62;
 
-
+        opacity: 1;
+        margin-top: -10px;
     }
 
+    .section {
+        background: none;
+        margin-top: -20px;
+        padding: 10px;
+    }
+
+ li.contact-li{
+    color: rgb(255, 255, 255) !important;
+       font-size: 16px;
+    }
+
+ul.contact-info {
+    background-color: black;
+    width: 338px;
+}
+
+
+
     .contactform {
-        display: block;
+        display:block;
         background-color: transparent;
         padding: 10px;
         width: 320px;
         margin-left: 30px;
+        margin-top: -77px;
     }
 }

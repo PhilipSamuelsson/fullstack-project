@@ -12,7 +12,7 @@ section .section-title {
 }
 #footer {
     background: #007b5e !important;
-    margin-top: 50px;
+    /* margin-top: 50px; */
     width: 100%;
 }
 #footer h5 {

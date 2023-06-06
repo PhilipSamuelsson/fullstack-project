@@ -6,6 +6,22 @@ import React from "react";
 import { useState } from "react";
 import "./ContactForm.css";
 
+// const FORMEND = "";
+// const [submitted, setSubmitted] = useState(false);
+// const handleSubmit = () => {
+//   setTimeout(() => {
+//     setSubmitted(true);
+//   }, 100);
+// };
+
+// if (submitted) {
+//   return (
+//     <>
+//       <div>thank you</div>
+//       <div>Vi återkommer</div>
+//     </>
+//   );
+// }
 const ContactForm = () => {
   const [data, setData] = useState({
     name: "",
@@ -21,7 +37,8 @@ const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(data);
+    alert(data.name);
+    alert(data.email);
   };
 
   return (
@@ -72,7 +89,12 @@ const ContactForm = () => {
               </ul>
             </div>
           </div>
-          <form className="contactform" method="post" onSubmit={handleSubmit}>
+          <form
+            className="contactform"
+            // action={FORMEND}
+            method="post"
+            onSubmit={handleSubmit}
+          >
             <h1 className="contact-h1">
               Kontakta <span className="contact-span">AirVenture</span>
             </h1>
