@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './NavBar.css'
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "./NavBar.css";
 
 const NavBar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -19,7 +19,7 @@ const NavBar = () => {
       >
         <span className="navbar-toggler-icon"></span>
       </button>
-      <div className={`collapse navbar-collapse ${isNavOpen ? 'show' : ''}`}>
+      <div className={`collapse navbar-collapse ${isNavOpen ? "show" : ""}`}>
         <ul className="navbar-nav ml-auto align-items-center">
           <li className="nav-item">
             <Link className="nav-link" to="/">
