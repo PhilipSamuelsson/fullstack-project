@@ -7,9 +7,12 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import axios from "axios";
+import ConfirmForm from "../ConfirmForm/ConfirmForm";
 
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
+
+
 
 const Bookingform = () => {
   const [formValues, setFormValues] = useState({
@@ -21,6 +24,14 @@ const Bookingform = () => {
     email: "",
     phone_number: "",
   });
+
+  const [ToggleForm, setToggleForm] = useState(true)
+
+    const toggleForm = () => {
+    setToggleForm(!ToggleForm)
+
+}
+
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -40,6 +51,7 @@ const Bookingform = () => {
   };
 
   const handleButtonClick = () => {
+    toggleForm()
     axios
       .post("http://localhost:8000/bookings", formValues)
       .then((response) => {
@@ -51,6 +63,11 @@ const Bookingform = () => {
   };
 
   return (
+<div>
+    {ToggleForm ?
+    <div><h2 className="bookingTitle">Boka din resa genom att fylla i formuläret nedan</h2>
+
+
     <Box
       component="form"
       sx={{
@@ -144,7 +161,9 @@ const Bookingform = () => {
       >
         Boka
       </Button>
-    </Box>
+    </Box> </div>
+    : <ConfirmForm/>}
+    </div>
   );
 };
 
